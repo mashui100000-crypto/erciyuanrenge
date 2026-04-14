@@ -111,50 +111,21 @@ const dimExplanations = {
 };
 
 const questions = [
-  { id: "q1", dim: "S1", text: "大战前夜，作战室安静得只剩呼吸声，你更像哪种人？", options: [{ label: "先把风险和退路理清，别让情绪带队", value: 1 }, { label: "会被点燃，但还是想听完计划再上", value: 2 }, { label: "先把士气撑起来，哪怕先说一句“能赢”", value: 3 }] },
-  { id: "q2", dim: "S1", text: "同伴明知道很难，还是说“我想再试一次”，你通常会？", options: [{ label: "先提醒他别把自己搭进去", value: 1 }, { label: "陪他试，但会顺手留个后手", value: 2 }, { label: "直接跟上，一起把不可能打成可能", value: 3 }] },
-
-  { id: "q3", dim: "S2", text: "命运突然把你从配角推到聚光灯下，你会？", options: [{ label: "根据局势换打法，赢下来最重要", value: 1 }, { label: "先适应一下，再决定自己该怎么站位", value: 2 }, { label: "还是按自己的方式来，不想临场改掉核心设定", value: 3 }] },
-  { id: "q4", dim: "S2", text: "大家因为一个误会开始怀疑你时，你第一反应更像？", options: [{ label: "想想是不是该换种表现方式，减少误解", value: 1 }, { label: "先观察局势，再决定要不要解释", value: 2 }, { label: "只要我知道自己没偏航，就不会轻易被带跑", value: 3 }] },
-
-  { id: "q5", dim: "S3", text: "队伍准备分组潜入时，你最自然会站到哪个位置？", options: [{ label: "后方支援位，稳住情报和补给", value: 1 }, { label: "机动补位，哪里缺人我顶哪里", value: 2 }, { label: "关键突破位，最好由我来推进主线", value: 3 }] },
-  { id: "q6", dim: "S3", text: "决胜那一下没人接时，你通常会？", options: [{ label: "如果有更稳的人选，我愿意让位", value: 1 }, { label: "看现场情况，需要我上我就上", value: 2 }, { label: "这种时候我会主动顶上，把戏接住", value: 3 }] },
-
-  { id: "q7", dim: "E1", text: "战斗结束后，同伴一个人坐在楼顶吹风，你会先做什么？", options: [{ label: "先想想怎么帮他解决眼前的问题", value: 1 }, { label: "先坐到旁边，等他愿意开口", value: 2 }, { label: "先顾他的情绪，至少别让他一个人扛着", value: 3 }] },
-  { id: "q8", dim: "E1", text: "看到别人嘴上说“我没事”，但状态明显不对时，你通常会？", options: [{ label: "先判断到底出了什么问题", value: 1 }, { label: "先陪一会儿，再慢慢聊", value: 2 }, { label: "会很快代入，甚至想替他分担一点", value: 3 }] },
-
-  { id: "q9", dim: "E2", text: "新搭档第一次出任务就说“后背交给你了”，你会？", options: [{ label: "先相处几次，信任这事不能急", value: 1 }, { label: "边合作边建立默契，慢慢加深信任", value: 2 }, { label: "很快就会把他划进“自己人”范围", value: 3 }] },
-  { id: "q10", dim: "E2", text: "对你来说，羁绊更像什么？", options: [{ label: "一种需要谨慎管理的风险", value: 1 }, { label: "既是力量也是牵挂，要尽量平衡", value: 2 }, { label: "越深越能让我爆发出真正的力量", value: 3 }] },
-
-  { id: "q11", dim: "E3", text: "如果你被误认为是害大家陷入危机的人，你会？", options: [{ label: "情绪会先冲上来，很难立刻压住", value: 1 }, { label: "先稳一下，再看怎么把话讲清楚", value: 2 }, { label: "越是这种时刻，反而会越冷静", value: 3 }] },
-  { id: "q12", dim: "E3", text: "作战会上你的方案被当众否掉，你的反应更像？", options: [{ label: "第一反应就是顶回去，情绪先上来", value: 1 }, { label: "看对象和场合，决定是争还是缓一缓", value: 2 }, { label: "先稳住，把证据和备选方案补上", value: 3 }] },
-
-  { id: "q13", dim: "A1", text: "班里转来一个气场很强、背景成谜的新同学，你会？", options: [{ label: "先保留判断，别太快相信谁", value: 1 }, { label: "先观察一阵，再决定怎么靠近", value: 2 }, { label: "先给一点善意，主动认识一下", value: 3 }] },
-  { id: "q14", dim: "A1", text: "遗迹深处出现一扇写着“不要进入”的门，你更可能？", options: [{ label: "先查清危险来源，再决定碰不碰", value: 1 }, { label: "小范围试探一下，不急着一头扎进去", value: 2 }, { label: "会觉得里面多半藏着新的机会或答案", value: 3 }] },
-
-  { id: "q15", dim: "A2", text: "校规写着夜里不能外出，可这时朋友发来求救消息，你会？", options: [{ label: "先去救人，回来再承担后果", value: 1 }, { label: "一边救人一边找规则里的变通办法", value: 2 }, { label: "先按流程调动能帮忙的人，别让局面更乱", value: 3 }] },
-  { id: "q16", dim: "A2", text: "你更认同哪种处理危机的方式？", options: [{ label: "先把人和事救下来，规矩之后再补", value: 1 }, { label: "规则是工具，能用就用，不够用就调整", value: 2 }, { label: "越是混乱，越要靠流程把局面稳住", value: 3 }] },
-
-  { id: "q17", dim: "A3", text: "如果预言书写着“你改不了结局”，你会？", options: [{ label: "我偏要试试看，结局哪有写死的", value: 1 }, { label: "先接受现状，再找还有哪些地方能改", value: 2 }, { label: "大方向也许真改不了，但细节还能补救", value: 3 }] },
-  { id: "q18", dim: "A3", text: "你觉得命运更像哪一种东西？", options: [{ label: "一条会被选择不断改写的路线", value: 1 }, { label: "自己、环境和运气一起写成的剧本", value: 2 }, { label: "大方向早有轨道，人更多是在顺势前进", value: 3 }] },
-
-  { id: "q19", dim: "Ac1", text: "接到突发任务，要你十分钟后就出发，你的起手动作通常是？", options: [{ label: "先把情报、路线和准备工作补齐", value: 1 }, { label: "先列出优先级，动起来的同时保持节奏", value: 2 }, { label: "先出发，路上再把细节一点点校准", value: 3 }] },
-  { id: "q20", dim: "Ac1", text: "主线危机和支线求助同时弹出来时，你更容易？", options: [{ label: "按顺序一个个处理，避免自己乱掉", value: 1 }, { label: "两边一起推进，尽量都不落下", value: 2 }, { label: "先狠狠干最急的那条线，别让时机溜走", value: 3 }] },
-
-  { id: "q21", dim: "Ac2", text: "三条路都能通向目标时，你平时更像？", options: [{ label: "会反复衡量，尽量把风险压低再选", value: 1 }, { label: "给自己一个截止时间，到了就定", value: 2 }, { label: "先选一条走，走着再根据情况修正", value: 3 }] },
-  { id: "q22", dim: "Ac2", text: "战场上敌人突然亮出从没见过的新招，你通常会？", options: [{ label: "先让大家别乱冲，重新判断一遍", value: 1 }, { label: "边打边试，边试边调整", value: 2 }, { label: "很快拍板一个新战术，先执行起来", value: 3 }] },
-
-  { id: "q23", dim: "Ac3", text: "如果要经历一段很长的修行期，你更像哪种节奏？", options: [{ label: "前几天很猛，后面容易被状态带着跑", value: 1 }, { label: "中后段最稳，前面需要一点热身时间", value: 2 }, { label: "每天都能稳定推进，不太靠情绪吃饭", value: 3 }] },
-  { id: "q24", dim: "Ac3", text: "没人监督、也没人催进度的时候，你通常会？", options: [{ label: "看当天状态，容易一阵一阵地推进", value: 1 }, { label: "至少会把最核心的部分按时完成", value: 2 }, { label: "照着自己的节奏表继续往前推", value: 3 }] },
-
-  { id: "q25", dim: "So1", text: "第一次进新公会语音频道，你最像哪种开场方式？", options: [{ label: "先安静听一会儿，摸清氛围再说", value: 1 }, { label: "有人点到我，我就自然接话", value: 2 }, { label: "会主动打招呼，顺手把气氛带热一点", value: 3 }] },
-  { id: "q26", dim: "So1", text: "漫展或同好面基时，你的社交状态通常是？", options: [{ label: "更愿意待在熟一点的小圈子里", value: 1 }, { label: "看现场状态切换，舒服就多聊几句", value: 2 }, { label: "会主动串场，认识新朋友也不太费劲", value: 3 }] },
-
-  { id: "q27", dim: "So2", text: "你发现队长的战术有漏洞时，通常会怎么开口？", options: [{ label: "我会先垫很多话，尽量说得委婉一点", value: 1 }, { label: "先看场合和对方状态，再决定怎么讲", value: 2 }, { label: "直接指出问题，再把替代方案一起给出来", value: 3 }] },
-  { id: "q28", dim: "So2", text: "团队里两派意见正面撞起来时，你一般会？", options: [{ label: "先不急着表态，等局势再清一点", value: 1 }, { label: "先找双方都能接受的共识点", value: 2 }, { label: "会很明确说出自己站哪边，别让大家猜", value: 3 }] },
-
-  { id: "q29", dim: "So3", text: "团战任务里，你最常扮演的角色更像？", options: [{ label: "先把自己负责的那部分稳稳做好", value: 1 }, { label: "按分工协作，哪里缺一点我就补一点", value: 2 }, { label: "主动串联全队，让大家更像在打一场配合", value: 3 }] },
-  { id: "q30", dim: "So3", text: "最终结算页面弹出来时，你最在意的通常是？", options: [{ label: "我自己这部分到底有没有做好", value: 1 }, { label: "个人和团队都别掉链子就行", value: 2 }, { label: "队伍能赢最重要，我的数据一般也能接受", value: 3 }] }
+  { id: "q1", dim: "S1", text: "大战前夜，主心骨说“这把还能翻”，你心里更接近哪句？", options: [{ label: "先别燃，先看赢面到底有多少", value: 1 }, { label: "能拼，但前提是计划别太离谱", value: 2 }, { label: "会被点燃，愿意再顶这一轮", value: 3 }, { label: "越是这种局，越想把全队气势扛起来", value: 4 }] },
+  { id: "q2", dim: "S2", text: "大家因为误会开始怀疑你时，你通常会怎么处理自己？", options: [{ label: "看局势换表现，先把误会压下去", value: 1 }, { label: "会稍微调整一下说法和状态", value: 2 }, { label: "先观察局势，但核心不会乱改", value: 3 }, { label: "只要我知道自己没偏航，就不会被带跑", value: 4 }] },
+  { id: "q3", dim: "S3", text: "关键突破位突然空出来，你最像哪种反应？", options: [{ label: "我更适合在后面稳住全局", value: 1 }, { label: "缺人我补位，但不一定非我不可", value: 2 }, { label: "如果需要，我愿意顶上去", value: 3 }, { label: "这种关键戏，我通常会主动接住", value: 4 }] },
+  { id: "q4", dim: "E1", text: "队友嘴上说“我没事”，但你一看就知道他在硬撑，你会？", options: [{ label: "先判断问题到底出在哪儿", value: 1 }, { label: "会关心，但先给一点空间", value: 2 }, { label: "会明显感受到他的情绪，想陪着他", value: 3 }, { label: "几乎会立刻代入，甚至想替他分担一点", value: 4 }] },
+  { id: "q5", dim: "E2", text: "新搭档第一次并肩作战就说“后背交给你了”，你通常会？", options: [{ label: "信任要慢慢来，这话我先听着", value: 1 }, { label: "可以合作，但我会留观察期", value: 2 }, { label: "边打边建立默契，慢慢会当自己人", value: 3 }, { label: "一旦感觉对上了，我会很快真心护着他", value: 4 }] },
+  { id: "q6", dim: "E3", text: "作战会上你的方案被当众否掉时，你更像哪种状态？", options: [{ label: "第一反应就是想顶回去", value: 1 }, { label: "会先压一下，但脸上已经写出来了", value: 2 }, { label: "大多能稳住，之后再把话说清楚", value: 3 }, { label: "越是这种场面，我反而越冷静", value: 4 }] },
+  { id: "q7", dim: "A1", text: "班里来了一个背景成谜、气场很强的新同学，你会？", options: [{ label: "先防着点，这种人我不会轻易信", value: 1 }, { label: "先观察，别太快下结论", value: 2 }, { label: "愿意先给一点善意和接触机会", value: 3 }, { label: "会更相信他身上可能藏着转机或答案", value: 4 }] },
+  { id: "q8", dim: "A2", text: "规则挡在前面，但朋友这会儿真的需要人，你更可能？", options: [{ label: "先救人，规矩之后再说", value: 1 }, { label: "一边帮人一边找能钻的缝", value: 2 }, { label: "先尽量在规则里调资源解决", value: 3 }, { label: "越是乱局，越会先按流程把局面稳住", value: 4 }] },
+  { id: "q9", dim: "A3", text: "如果预言书直接写着“你改不了结局”，你会？", options: [{ label: "我偏要改，写死了也要撕开看看", value: 1 }, { label: "不太信结局真能写死，总想试两手", value: 2 }, { label: "接受限制，但一定会找还能动的地方", value: 3 }, { label: "会更倾向顺着大势走，在缝里求解", value: 4 }] },
+  { id: "q10", dim: "Ac1", text: "临时任务通知你十分钟后出发，你的起手动作更像？", options: [{ label: "先把准备补齐，慢点也比乱冲好", value: 1 }, { label: "一边准备一边推进，别卡死在原地", value: 2 }, { label: "会很快开动，细节路上再补", value: 3 }, { label: "先冲出去再说，动起来最重要", value: 4 }] },
+  { id: "q11", dim: "Ac2", text: "三条路线都能走到终点时，你通常怎么拍板？", options: [{ label: "会反复权衡，尽量把风险压低", value: 1 }, { label: "给自己一点时间，到了再定", value: 2 }, { label: "基本能较快做决定，不想拖太久", value: 3 }, { label: "很快就会选一条先走，再边走边修", value: 4 }] },
+  { id: "q12", dim: "Ac3", text: "没人催进度的长期修行期里，你的节奏更像？", options: [{ label: "很看状态，容易一阵猛一阵停", value: 1 }, { label: "至少关键部分还能保住不断档", value: 2 }, { label: "整体算稳定，能持续往前推", value: 3 }, { label: "基本能按自己的节奏长期稳定输出", value: 4 }] },
+  { id: "q13", dim: "So1", text: "第一次进新公会语音或新群聊，你最像哪种开场？", options: [{ label: "先潜水观察，搞清楚氛围再说", value: 1 }, { label: "别人点到我，我才会自然接话", value: 2 }, { label: "会主动聊几句，先把尴尬打散", value: 3 }, { label: "很自然就能把场子带热起来", value: 4 }] },
+  { id: "q14", dim: "So2", text: "你发现队长战术有漏洞时，通常怎么说？", options: [{ label: "会绕着说，尽量别让人当场难堪", value: 1 }, { label: "先看气氛和对方状态，再挑说法", value: 2 }, { label: "会比较直接指出问题", value: 3 }, { label: "会当场点明问题，并把替代方案一起给出来", value: 4 }] },
+  { id: "q15", dim: "So3", text: "团战结算页弹出来时，你最在意的通常是？", options: [{ label: "我自己负责的那部分到底有没有做好", value: 1 }, { label: "别给团队拖后腿就行", value: 2 }, { label: "个人和团队都想兼顾住", value: 3 }, { label: "团队能赢最重要，我愿意主动补位", value: 4 }] }
 ];
 
 const animeTypes = [
@@ -784,9 +755,10 @@ function updateProgress() {
   }
 }
 
-function levelFromScore(score) {
-  if (score <= 3) return "L";
-  if (score <= 4) return "M";
+function levelFromScore(score, count = 1) {
+  const average = score / Math.max(count, 1);
+  if (average < 1.75) return "L";
+  if (average < 3.25) return "M";
   return "H";
 }
 
@@ -940,13 +912,18 @@ function computeResult() {
     acc[dim] = 0;
     return acc;
   }, {});
+  const questionCountByDim = dimOrder.reduce((acc, dim) => {
+    acc[dim] = 0;
+    return acc;
+  }, {});
 
   questions.forEach((q) => {
     rawScores[q.dim] += Number(answers[q.id] || 0);
+    questionCountByDim[q.dim] += 1;
   });
 
   const levels = dimOrder.reduce((acc, dim) => {
-    acc[dim] = levelFromScore(rawScores[dim]);
+    acc[dim] = levelFromScore(rawScores[dim], questionCountByDim[dim]);
     return acc;
   }, {});
 
