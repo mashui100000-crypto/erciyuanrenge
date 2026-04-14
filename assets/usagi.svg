@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-label="Usagi style card">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff7fb5"/>
+      <stop offset="100%" stop-color="#ffd166"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="500" rx="30" fill="url(#bg)"/>
+  <circle cx="310" cy="120" r="70" fill="#ffd55f"/>
+  <circle cx="590" cy="120" r="70" fill="#ffd55f"/>
+  <circle cx="450" cy="220" r="110" fill="#ffe0ca"/>
+  <path d="M335 210 C 335 140, 565 140, 565 210 Q450 170 335 210 Z" fill="#ffca4f"/>
+  <circle cx="412" cy="230" r="10" fill="#3f2b2f"/>
+  <circle cx="488" cy="230" r="10" fill="#3f2b2f"/>
+  <path d="M402 288 Q450 320 498 288" stroke="#3f2b2f" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="60" y="430" font-size="54" font-family="'Noto Sans SC', sans-serif" font-weight="800" fill="#6c2341">月野兔</text>
+</svg>

@@ -1,0 +1,16 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-label="Tanjiro style card">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b8f63"/>
+      <stop offset="100%" stop-color="#a1d76a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="500" rx="30" fill="url(#bg)"/>
+  <circle cx="450" cy="220" r="110" fill="#f3d8c2"/>
+  <rect x="308" y="300" width="284" height="130" rx="16" fill="#1f4030"/>
+  <path d="M335 215 C 340 140, 560 140, 565 220 Q450 172 335 215 Z" fill="#5f3022"/>
+  <circle cx="412" cy="230" r="10" fill="#2b1c16"/>
+  <circle cx="488" cy="230" r="10" fill="#2b1c16"/>
+  <path d="M410 285 Q450 304 490 285" stroke="#2b1c16" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="60" y="430" font-size="54" font-family="'Noto Sans SC', sans-serif" font-weight="800" fill="#f2fff7">灶门炭治郎</text>
+</svg>

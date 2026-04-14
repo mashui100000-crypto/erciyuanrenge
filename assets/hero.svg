@@ -1,0 +1,31 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-label="Anime quiz hero">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f66ff"/>
+      <stop offset="100%" stop-color="#00c3ff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#eef5ff" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="500" rx="36" fill="url(#bg)"/>
+  <circle cx="1050" cy="70" r="120" fill="#ffffff" fill-opacity="0.15"/>
+  <circle cx="130" cy="430" r="150" fill="#ffffff" fill-opacity="0.12"/>
+
+  <rect x="70" y="70" width="1060" height="360" rx="28" fill="url(#card)"/>
+
+  <g transform="translate(120 180)">
+    <circle cx="0" cy="0" r="58" fill="#ff9f59"/>
+    <circle cx="190" cy="0" r="58" fill="#fedb55"/>
+    <circle cx="380" cy="0" r="58" fill="#9cd0ff"/>
+    <circle cx="570" cy="0" r="58" fill="#90e3b0"/>
+    <circle cx="760" cy="0" r="58" fill="#c6b1ff"/>
+    <circle cx="950" cy="0" r="58" fill="#ff9bd0"/>
+  </g>
+
+  <text x="120" y="140" font-size="54" font-family="'Noto Sans SC', sans-serif" font-weight="800" fill="#16335f">你是哪位动漫角色？</text>
+  <text x="120" y="340" font-size="34" font-family="'Noto Sans SC', sans-serif" font-weight="600" fill="#35537f">12 道题，测出你的二次元人格</text>
+  <text x="120" y="388" font-size="26" font-family="'Noto Sans SC', sans-serif" fill="#4c678d">不包含《我的英雄学院》相关角色</text>
+</svg>

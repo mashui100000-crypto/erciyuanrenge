@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-label="Gintoki style card">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8fa4c8"/>
+      <stop offset="100%" stop-color="#d9e2f2"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="500" rx="30" fill="url(#bg)"/>
+  <circle cx="450" cy="220" r="110" fill="#f3dccb"/>
+  <path d="M330 215 C340 120,560 130,570 220 Q450 170 330 215 Z" fill="#f3f5fb"/>
+  <circle cx="412" cy="230" r="10" fill="#2a2f3d"/>
+  <circle cx="488" cy="230" r="10" fill="#2a2f3d"/>
+  <path d="M402 290 Q450 314 498 290" stroke="#2a2f3d" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="60" y="430" font-size="54" font-family="'Noto Sans SC', sans-serif" font-weight="800" fill="#324b75">坂田银时</text>
+</svg>

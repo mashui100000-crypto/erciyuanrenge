@@ -330,7 +330,6 @@ const atlasEntries = [
   { name: "藤冈春绯", anime: "樱兰高校男公关部" },
   { name: "灰原哀", anime: "名侦探柯南" },
   { name: "钉崎野蔷薇", anime: "咒术回战" },
-  { name: "爆豪胜己", anime: "我的英雄学院" },
   { name: "露西·哈特菲利亚", anime: "妖精的尾巴" },
   { name: "格斯", anime: "剑风传奇" },
   { name: "坂田银时", anime: "银魂" }
@@ -365,7 +364,7 @@ const atlasImageMap = {
   "阿尼亚·福杰": "https://myanimelist.net/images/characters/4/457933.jpg",
   "蕾姆": "https://myanimelist.net/images/characters/9/311327.jpg",
   "惠惠": "https://myanimelist.net/images/characters/14/349249.jpg",
-  "雾岛董香": "https://s4.anilist.co/file/anilistcdn/character/large/b87277-oUaqrI1iBzu6.png",
+  "雾岛董香": "./assets/custom/touka.png",
   "猫猫": "https://myanimelist.net/images/characters/7/494014.jpg",
   "平泽唯": "https://s4.anilist.co/file/anilistcdn/character/large/b19565-7gMiEAm7NGNK.png",
   "日向雏田": "https://s4.anilist.co/file/anilistcdn/character/large/b1555-Q41GLTV3FvYF.png",
@@ -376,16 +375,16 @@ const atlasImageMap = {
   "奇犽·揍敌客": "https://myanimelist.net/images/characters/2/327920.jpg",
   "高仓健": "https://myanimelist.net/images/characters/5/531081.jpg",
   "绫濑桃": "https://myanimelist.net/images/characters/7/562295.jpg",
-  "电次": "https://s4.anilist.co/file/anilistcdn/character/large/b130102-FO1VHNnEnLlB.png",
+  "电次": "./assets/custom/denji.png",
   "玛奇玛": "https://myanimelist.net/images/characters/4/489561.jpg",
   "帕瓦": "https://myanimelist.net/images/characters/7/494969.jpg",
-  "早川秋": "https://myanimelist.net/images/characters/13/395003.jpg",
+  "早川秋": "./assets/custom/aki.png",
   "蕾塞": "https://myanimelist.net/images/characters/10/618421.jpg",
   "姬野": "https://s4.anilist.co/file/anilistcdn/character/large/b144596-kvL6SD2litJu.png",
   "东山小红": "https://myanimelist.net/images/characters/3/467961.jpg",
   "吉田宽文": "https://myanimelist.net/images/characters/13/619970.jpg",
   "黑崎一护": "https://s4.anilist.co/file/anilistcdn/character/large/b5-a7bkJgjhhigE.png",
-  "金木研": "https://s4.anilist.co/file/anilistcdn/character/large/b87275-mb13EWZBdbh3.png",
+  "金木研": "./assets/custom/kaneki.png",
   "夜神月": "https://s4.anilist.co/file/anilistcdn/character/large/b80-26EhwSsSqQ50.png",
   "冈部伦太郎": "https://myanimelist.net/images/characters/6/122643.jpg",
   "牧濑红莉栖": "https://myanimelist.net/images/characters/12/492885.jpg",
@@ -395,10 +394,10 @@ const atlasImageMap = {
   "菲利丝·喵喵": "https://myanimelist.net/images/characters/2/142621.jpg",
   "漆原琉华": "https://myanimelist.net/images/characters/7/133805.jpg",
   "桐生萌郁": "https://myanimelist.net/images/characters/12/275310.jpg",
-  "乔瑟夫·乔斯达": "https://myanimelist.net/images/characters/13/451321.jpg",
+  "乔瑟夫·乔斯达": "./assets/custom/joseph.png",
   "迪奥·布兰度": "https://myanimelist.net/images/characters/8/330539.jpg",
   "乔鲁诺·乔巴拿": "https://myanimelist.net/images/characters/16/571466.jpg",
-  "东方仗助": "https://myanimelist.net/images/characters/11/436398.jpg",
+  "东方仗助": "./assets/custom/josuke.png",
   "空条徐伦": "https://myanimelist.net/images/characters/8/476401.jpg",
   "布鲁诺·布加拉提": "https://myanimelist.net/images/characters/6/558883.jpg",
   "空条承太郎": "https://s4.anilist.co/file/anilistcdn/character/large/b4003-gWDSEGbeOAll.png",
@@ -411,7 +410,7 @@ const atlasImageMap = {
   "七海建人": "https://myanimelist.net/images/characters/16/581424.jpg",
   "乙骨忧太": "https://myanimelist.net/images/characters/10/461503.jpg",
   "禅院真希": "https://myanimelist.net/images/characters/15/423949.jpg",
-  "五条悟": "https://s4.anilist.co/file/anilistcdn/character/large/b127691-9zqh1xpIubn7.png",
+  "五条悟": "./assets/custom/gojo.png",
   "灶门祢豆子": "https://s4.anilist.co/file/anilistcdn/character/large/b127518-NRlq1CQ1v1ro.png",
   "妮可·罗宾": "https://s4.anilist.co/file/anilistcdn/character/large/b61-ywXUyyocEEqt.png",
   "Saber": "https://s4.anilist.co/file/anilistcdn/character/large/b497-Yg5pNmC8kxzs.png",
@@ -430,7 +429,6 @@ const atlasImageMap = {
   "藤冈春绯": "https://s4.anilist.co/file/anilistcdn/character/large/b18-SAz5kAo2Fhm1.png",
   "灰原哀": "https://s4.anilist.co/file/anilistcdn/character/large/b1743-yw1FloPUI7jO.png",
   "钉崎野蔷薇": "https://s4.anilist.co/file/anilistcdn/character/large/b133700-f6sOO3TcgLV6.png",
-  "爆豪胜己": "https://myanimelist.net/images/characters/12/299406.jpg",
   "露西·哈特菲利亚": "https://s4.anilist.co/file/anilistcdn/character/large/b5186-izgXf2S86K9u.png",
   "格斯": "https://myanimelist.net/images/characters/13/284125.jpg",
   "坂田银时": "https://s4.anilist.co/file/anilistcdn/character/large/b672-cP5VPriN67xJ.png"
@@ -526,7 +524,6 @@ const atlasArchetypeByName = {
   "藤冈春绯": "USAG",
   "灰原哀": "LITE",
   "钉崎野蔷薇": "GINT",
-  "爆豪胜己": "NARU",
   "露西·哈特菲利亚": "USAG",
   "格斯": "LEVI",
   "坂田银时": "GINT"
@@ -672,8 +669,7 @@ function openAtlasModal(entry, sourceCard) {
     const hotLabel = getAtlasHotLabel(details.popularity);
     const badges = [
       hotLabel ? `<span class="atlas-modal-badge">${hotLabel}</span>` : "",
-      `<span class="atlas-modal-badge type">${details.archetype.cn}</span>`,
-      `<span class="atlas-modal-badge">原型 ${details.archetype.role}</span>`
+      `<span class="atlas-modal-badge type">${details.archetype.cn}</span>`
     ].filter(Boolean);
     atlasModalBadgesEl.innerHTML = badges.join("");
   }
