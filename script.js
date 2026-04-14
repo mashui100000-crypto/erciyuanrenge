@@ -214,6 +214,7 @@ const animeTypes = [
 const atlasEntries = [
   { name: "爱德华·艾尔利克", anime: "钢之炼金术师" },
   { name: "L", anime: "死亡笔记" },
+  { name: "弥海砂", anime: "死亡笔记" },
   { name: "孙悟空", anime: "龙珠" },
   { name: "艾伦·耶格尔", anime: "进击的巨人" },
   { name: "漩涡鸣人", anime: "火影忍者" },
@@ -408,6 +409,7 @@ const atlasImageMap = {
 const atlasArchetypeByName = {
   "爱德华·艾尔利克": "EDWD",
   "L": "LITE",
+  "弥海砂": "USAG",
   "孙悟空": "NARU",
   "艾伦·耶格尔": "LEVI",
   "漩涡鸣人": "NARU",
@@ -530,6 +532,7 @@ const atlasPopularityByName = {
   "星野爱": 914,
   "成振宇": 912,
   "电次": 910,
+  "弥海砂": 908,
   "玛奇玛": 906,
   "蕾塞": 902,
   "早川秋": 898,
@@ -549,6 +552,7 @@ const atlasPopularityByName = {
 };
 
 const atlasRoleNotes = {
+  "弥海砂": "外表高调甜美，情感投入却非常极致，是那种一旦认定了人和立场，就会把喜欢和偏执都拉到满格的角色。",
   "冈部伦太郎": "嘴上是中二科学家，真到关键节点时比谁都敢扛事，是那种会一边嘴硬一边死磕到底的人。",
   "牧濑红莉栖": "理性很强、嘴也很锋利，但真正打动人的地方是她总能在混乱里把逻辑和温柔一起拎出来。",
   "椎名真由理": "表面软乎乎，实则是团队情绪锚点。她一出现，整个气压都会慢慢稳下来。",
