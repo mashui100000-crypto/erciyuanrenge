@@ -605,6 +605,11 @@ const atlasRoleNotes = {
 const atlasAliasNames = new Set([
 ]);
 
+const atlasRoleCountByArchetype = Object.entries(atlasArchetypeByName).reduce((acc, [, code]) => {
+  acc[code] = (acc[code] || 0) + 1;
+  return acc;
+}, {});
+
 const introScreen = document.getElementById("intro-screen");
 const testScreen = document.getElementById("test-screen");
 const resultScreen = document.getElementById("result-screen");
@@ -699,6 +704,21 @@ function getQuestionMetaLabel(question) {
   return `${dimensionMeta[question.dim].model} · ${dimensionMeta[question.dim].name}`;
 }
 
+function getShuffledOptions(question) {
+  const options = question.options.slice();
+  let seed = hashName(`${question.id}-${question.text}`);
+
+  for (let i = options.length - 1; i > 0; i -= 1) {
+    seed = (seed * 1664525 + 1013904223) % 4294967296;
+    const j = seed % (i + 1);
+    const temp = options[i];
+    options[i] = options[j];
+    options[j] = temp;
+  }
+
+  return options;
+}
+
 function renderQuestions() {
   questionListEl.innerHTML = "";
 
@@ -717,7 +737,7 @@ function renderQuestions() {
     const options = document.createElement("div");
     options.className = "options";
 
-    question.options.forEach((opt) => {
+    getShuffledOptions(question).forEach((opt) => {
       const label = document.createElement("label");
       label.className = "option";
 
@@ -823,15 +843,75 @@ function getTopMatchesByPattern(pattern) {
   const ranked = atlasEntries
     .filter((entry) => !atlasAliasNames.has(entry.name))
     .map((entry) => {
-    const archetypeCode = atlasArchetypeByName[entry.name] || "USAG";
-    const archetype = getArchetypeByRoleName(entry.name);
-    const distance = distanceBetweenPatterns(pattern, archetype.pattern);
-    const score = Math.max(52, Math.round((1 - distance / 15) * 100) - (hashName(entry.name) % 7));
-    return { ...entry, archetypeCode, score };
+      const archetypeCode = atlasArchetypeByName[entry.name] || "USAG";
+      const archetype = getArchetypeByRoleName(entry.name);
+      const distance = distanceBetweenPatterns(pattern, archetype.pattern);
+      const closeness = 16 - distance;
+      const normalizedScore = closeness / (atlasRoleCountByArchetype[archetypeCode] || 1);
+      const score = Math.round(normalizedScore * 1000);
+      return { ...entry, archetypeCode, score, distance, closeness, normalizedScore };
+    });
+
+  ranked.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    if (a.distance !== b.distance) return a.distance - b.distance;
+    return getAtlasPopularity(b.name) - getAtlasPopularity(a.name);
+  });
+  return ranked.slice(0, 6);
+}
+
+function getAnswerSeed() {
+  return questions.reduce((acc, question, index) => {
+    const value = Number(answers[question.id] || 0);
+    return acc + value * (index + 11) * 17;
+  }, 0);
+}
+
+function selectBalancedRole(pattern) {
+  const typeDistances = animeTypes.map((type) => ({
+    ...type,
+    distance: distanceBetweenPatterns(pattern, type.pattern)
+  }));
+  const minDistance = Math.min(...typeDistances.map((type) => type.distance));
+  const candidateTypes = typeDistances.filter((type) => type.distance <= minDistance + 1);
+  const candidateCodes = new Set(candidateTypes.map((type) => type.code));
+
+  const ranked = atlasEntries
+    .filter((entry) => !atlasAliasNames.has(entry.name))
+    .filter((entry) => candidateCodes.has(atlasArchetypeByName[entry.name] || "USAG"))
+    .map((entry) => {
+      const archetypeCode = atlasArchetypeByName[entry.name] || "USAG";
+      const archetype = getArchetypeByRoleName(entry.name);
+      const distance = distanceBetweenPatterns(pattern, archetype.pattern);
+      const closeness = 16 - distance;
+      const normalizedScore = closeness / (atlasRoleCountByArchetype[archetypeCode] || 1);
+      const tickets = Math.max(1, Math.round(normalizedScore * 100));
+      return { ...entry, archetypeCode, distance, closeness, normalizedScore, tickets };
+    });
+
+  ranked.sort((a, b) => {
+    if (b.normalizedScore !== a.normalizedScore) return b.normalizedScore - a.normalizedScore;
+    if (a.distance !== b.distance) return a.distance - b.distance;
+    return hashName(a.name) - hashName(b.name);
   });
 
-  ranked.sort((a, b) => b.score - a.score);
-  return ranked.slice(0, 6);
+  const totalTickets = ranked.reduce((sum, item) => sum + item.tickets, 0);
+  const seed = getAnswerSeed();
+  let cursor = totalTickets === 0 ? 0 : seed % totalTickets;
+  let selectedRole = null;
+
+  for (const item of ranked) {
+    if (cursor < item.tickets) {
+      selectedRole = item;
+      break;
+    }
+    cursor -= item.tickets;
+  }
+
+  return {
+    selectedRole: selectedRole || ranked[0] || null,
+    topMatches: ranked.slice(0, 6)
+  };
 }
 
 function buildRoleFallbackImage(name, anime) {
@@ -882,26 +962,29 @@ function computeResult() {
     }
   });
 
-  const match = Math.max(60, Math.round((1 - minDistance / 15) * 100));
-
   const dimExplain = dimOrder.reduce((acc, dim) => {
     acc[dim] = dimExplanations[dim][levels[dim]];
     return acc;
   }, {});
 
-  const topMatches = getTopMatchesByPattern(pattern);
-  const selectedRole = topMatches[0];
+  const balancedRoleResult = selectBalancedRole(pattern);
+  const selectedRole = balancedRoleResult.selectedRole;
+  const selectedType = selectedRole ? getArchetypeByRoleName(selectedRole.name) : bestType;
+  const selectedDistance = selectedRole
+    ? distanceBetweenPatterns(pattern, selectedType.pattern)
+    : minDistance;
+  const matchFromSelectedType = Math.max(60, Math.round((1 - selectedDistance / 15) * 100));
 
   return {
-    finalType: bestType,
+    finalType: selectedType,
     selectedRole,
-    topMatches,
+    topMatches: balancedRoleResult.topMatches.length ? balancedRoleResult.topMatches : getTopMatchesByPattern(pattern),
     rawScores,
     levels,
     dimExplanations: dimExplain,
     modeKicker: "你最像的二次元角色",
-    badge: `匹配度 ${match}%`,
-    sub: `${bestType.cn} · ${bestType.sub}`,
+    badge: `匹配度 ${matchFromSelectedType}%`,
+    sub: `${selectedType.cn} · ${selectedType.sub}`,
     pattern
   };
 }
