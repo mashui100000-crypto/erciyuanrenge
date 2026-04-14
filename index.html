@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>二次元人格测试</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="shell">
+      <section id="intro-screen" class="screen">
+        <div class="hero card hero-minimal">
+          <h1>SBTI 退场，二次元人格来了。</h1>
+          <div class="hero-actions hero-actions-single">
+            <button id="start-btn" class="btn-primary">开始测试</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="test-screen" class="screen hidden">
+        <div class="test-wrap card">
+          <div class="topbar">
+            <div class="progress"><span id="progress-bar"></span></div>
+            <div class="progress-text"><span id="progress-text">0 / 30</span></div>
+          </div>
+
+          <div id="question-list" class="question-list"></div>
+
+          <div class="actions-bottom">
+            <div id="progress-hint" class="hint">请先完成所有题目</div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <button id="back-btn" class="btn-secondary">返回首页</button>
+              <button id="submit-btn" class="btn-primary" disabled>提交并查看结果</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen hidden">
+        <div class="result-wrap card">
+          <div class="result-layout">
+            <div class="result-top">
+              <div class="poster-box">
+                <img id="result-image" class="poster-image" src="" alt="人格结果图" />
+                <div id="result-intro" class="poster-caption"></div>
+              </div>
+              <button id="share-btn" class="btn-primary">下载结果图</button>
+              <div class="poster-search-tip">二次元人格测试复刻版</div>
+
+              <div class="type-box">
+                <div id="result-kicker" class="type-kicker">你的主类型</div>
+                <div id="result-type-name" class="type-name"></div>
+                <div id="result-badge" class="match"></div>
+                <div id="result-sub" class="type-subname"></div>
+              </div>
+            </div>
+
+            <div class="analysis-box">
+              <h3>该人格的简单解读</h3>
+              <p id="result-desc"></p>
+            </div>
+
+            <div class="dim-box">
+              <h3>十五维度评分</h3>
+              <div id="dim-list" class="dim-list"></div>
+            </div>
+
+            <div class="note-box">
+              <h3>友情提示</h3>
+              <p>本测试仅供娱乐，不作为心理诊断、招聘筛选或现实关系判断依据。</p>
+            </div>
+
+            <div class="result-actions">
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <button id="restart-btn" class="btn-secondary">重新测试</button>
+                <button id="home-btn" class="btn-primary">回到首页</button>
+              </div>
+            </div>
+
+            <div class="atlas-box">
+              <h3>人格图鉴</h3>
+              <p class="atlas-subtitle">测试后可查看全部二次元人格与角色原型。</p>
+              <div id="atlas-list" class="atlas-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="atlas-modal" class="atlas-modal hidden" aria-hidden="true">
+    <div class="atlas-modal-backdrop" data-close="atlas-modal"></div>
+    <div class="atlas-modal-panel" role="dialog" aria-modal="true" aria-labelledby="atlas-modal-title">
+      <button id="atlas-modal-close" class="atlas-modal-close" type="button" aria-label="关闭">关闭</button>
+      <img id="atlas-modal-image" class="atlas-modal-image" src="" alt="角色大图" />
+      <div class="atlas-modal-meta">
+        <h4 id="atlas-modal-title"></h4>
+        <p id="atlas-modal-sub"></p>
+        <div id="atlas-modal-badges" class="atlas-modal-badges"></div>
+        <p id="atlas-modal-desc" class="atlas-modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
