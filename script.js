@@ -971,6 +971,10 @@ function getRepeatTypeHint(result) {
   return "如果你经常测到爱德华型，通常不是巧合：这说明你在很多选择里都会偏向“先把局面扛起来”“边做边修正”“关键时刻自己拍板”“不太信结局只能认命”这一边。你的分数常会把热血值、行动速度、决策果断度和执行稳定度推到中高档，所以系统会反复把你归到炼成行动派。";
 }
 
+function formatRoleWithAnime(name, anime) {
+  return anime ? `${name} · ${anime}` : name;
+}
+
 function renderResult(result) {
   const selectedImage = result.selectedRole
     ? (atlasImageMap[result.selectedRole.name] || buildRoleFallbackImage(result.selectedRole.name, result.selectedRole.anime))
@@ -986,9 +990,9 @@ function renderResult(result) {
     resultImageEl.onerror = null;
   }
   resultImageEl.alt = `${result.selectedRole ? result.selectedRole.name : result.finalType.role}结果图`;
-  resultIntroEl.textContent = result.selectedRole ? `你和 ${result.selectedRole.name}（${result.selectedRole.anime}）的气质最接近。` : result.finalType.intro;
+  resultIntroEl.textContent = result.selectedRole ? `你和 ${formatRoleWithAnime(result.selectedRole.name, result.selectedRole.anime)} 的气质最接近。` : result.finalType.intro;
   resultKickerEl.textContent = result.modeKicker;
-  resultTypeNameEl.textContent = result.selectedRole ? `${result.selectedRole.name}（${result.selectedRole.anime}）` : `${result.finalType.code}（${result.finalType.cn}）`;
+  resultTypeNameEl.textContent = result.selectedRole ? formatRoleWithAnime(result.selectedRole.name, result.selectedRole.anime) : `${result.finalType.code}（${result.finalType.cn}）`;
   resultBadgeEl.textContent = result.badge;
   resultSubEl.textContent = result.sub;
   const repeatTypeHint = getRepeatTypeHint(result);
