@@ -314,6 +314,7 @@ const atlasBaseOrderByName = Object.fromEntries(
 const atlasImageMap = {
   "爱德华·艾尔利克": "https://s4.anilist.co/file/anilistcdn/character/large/b11-TA5Nuk7EDUZG.jpg",
   "L": "https://s4.anilist.co/file/anilistcdn/character/large/b71-1W4panC53vfs.png",
+  "弥海砂": "./assets/custom/misa.png",
   "孙悟空": "https://s4.anilist.co/file/anilistcdn/character/large/246-wsRRr6z1kii8.png",
   "艾伦·耶格尔": "https://s4.anilist.co/file/anilistcdn/character/large/b40882-dsj7IP943WFF.jpg",
   "漩涡鸣人": "https://s4.anilist.co/file/anilistcdn/character/large/b17-phjcWCkRuIhu.png",
