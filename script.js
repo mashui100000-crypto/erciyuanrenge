@@ -601,6 +601,7 @@ const questionListEl = document.getElementById("question-list");
 const progressBarEl = document.getElementById("progress-bar");
 const progressTextEl = document.getElementById("progress-text");
 const progressHintEl = document.getElementById("progress-hint");
+const introShowcaseEl = document.getElementById("hero-showcase");
 
 const resultImageEl = document.getElementById("result-image");
 const resultIntroEl = document.getElementById("result-intro");
@@ -1076,6 +1077,45 @@ function renderAtlas(currentRole) {
   });
 }
 
+function renderIntroShowcase() {
+  if (!introShowcaseEl) return;
+
+  introShowcaseEl.innerHTML = "";
+
+  atlasEntries
+    .slice()
+    .sort((a, b) => getAtlasPopularity(b.name) - getAtlasPopularity(a.name))
+    .forEach((entry) => {
+      const imageSrc = atlasImageMap[entry.name] || buildRoleFallbackImage(entry.name, entry.anime);
+      const card = document.createElement("article");
+      card.className = "hero-character";
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", `查看 ${entry.name} 图鉴`);
+      card.innerHTML = `
+        <img src="${imageSrc}" alt="${entry.name}" loading="lazy" referrerpolicy="no-referrer" />
+        <span>${entry.name}</span>
+      `;
+
+      const img = card.querySelector("img");
+      if (img) {
+        img.addEventListener("error", () => {
+          img.src = buildRoleFallbackImage(entry.name, entry.anime);
+        });
+      }
+
+      card.addEventListener("click", () => openAtlasModal(entry, card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openAtlasModal(entry, card);
+        }
+      });
+
+      introShowcaseEl.appendChild(card);
+    });
+}
+
 function startTest() {
   resetAnswers();
   renderQuestions();
@@ -1125,4 +1165,5 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+renderIntroShowcase();
 setScreen("intro");
